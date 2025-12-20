@@ -11,7 +11,7 @@ In simple terms, cloud computing allows you to store data and run applications o
 ## Key Features of Cloud Computing
 
 
-![Omkar Sharma](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7jxgl7ochwp6o00l15lz.png)
+![Omkar Sharma](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4rscfmqlmmx59wl6ms8l.png)
 
 - **Scalability**  
   Ability to allocate and deallocate resources based on demand.
@@ -86,7 +86,7 @@ The shared responsibility model defines how security and management responsibili
 ## Cloud Deployment Models
 
 
-![Omkar Sharma](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jpv87rlbgbdvbmp09z4v.png)
+![Omkar Sharma](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/h8xceqee57ldiex6goo7.png)
 
 
 ### Private Cloud
