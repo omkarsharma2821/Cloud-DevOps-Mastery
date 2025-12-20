@@ -213,7 +213,6 @@ A geographical area containing multiple datacenters to ensure resiliency and rel
 
 Cloud computing enables organizations to build, deploy, and scale applications efficiently by providing computing resources as services. It offers scalability, flexibility, high availability, and cost efficiency while eliminating the need for heavy upfront infrastructure investments.
 
-
 ---
 
 ✍️ **Author**: *Omkar Sharma*  
