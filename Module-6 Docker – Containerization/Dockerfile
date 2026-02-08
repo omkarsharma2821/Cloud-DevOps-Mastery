@@ -9,4 +9,6 @@ COPY main.js /main.js
 COPY package.json /package.json
 COPY package-lock.json /package-lock.json
 
+RUN npm install
+
 ENTRYPOINT ["node", "main.js"]
