@@ -1,4 +1,4 @@
-### Setting Up Jenkins on AWS EC2 (Ubuntu)
+## Setting Up Jenkins on AWS EC2 (Ubuntu)
 
 ### Launch EC2 Instance
 
