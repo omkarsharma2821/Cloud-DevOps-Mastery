@@ -192,6 +192,8 @@ Kubernetes is an **open-source container orchestration platform** that automates
 
 ## Why the Name Kubernetes?
 
+![Omkar Sharma](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9r2hl9k69cc2i13wdk24.png)
+
 * Derived from Greek word meaning **“Helmsman” (ship pilot)**
 * Represents managing containers like steering a ship
 * Abbreviated as **K8s** (8 letters between K and S)
