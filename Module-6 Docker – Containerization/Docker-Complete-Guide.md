@@ -107,6 +107,14 @@ Stop a Container:
 docker stop <container_name>
 ```
 
+Delete a Container
+
+```bash
+docker stop <container_id_or_name>
+docker rm <container_id_or_name>
+docker rm -f <container_id_or_name>
+```
+
 ### Key Concept
 
 * Multiple containers can run from the same image.
