@@ -180,6 +180,7 @@ git reset --hard <commit id>
 
 here we are moving our head so we will loose the below commits
 ```
+![Omkar Sharma](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5kdcp0gt4k64gcadt5ps.jpeg)
 
 whenever we are saying VCS we should have something when we do any thing wrong we can revert back.....so Git allows reverting commits to return to a previous stable state when required.
 
@@ -194,6 +195,7 @@ In this feature we use the concept of Linked List head points to the latest comm
 ```bash
 git revert <commit id>
 ```
+![Omkar Sharma](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/epd2ajdmg8miznlzpv1y.jpeg)
 
 ![Omkar Sharma](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/cpcpciarw6cmg35ihzav.png)
 
