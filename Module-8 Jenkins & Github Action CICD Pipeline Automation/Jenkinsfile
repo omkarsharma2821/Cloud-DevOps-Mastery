@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone application from github') {
+            steps {
+                sh '''
+                    mkdir -p devops
+                    cd devops
+                    rm -rf Node.js-App-Deploy-Github-Action
+                    git clone -b main https://github.com/omkarsharma2821/Node.js-App-Deploy-Github-Action.git
+                '''
+            }
+        }
+        stage('Creating Image for the application') {
+            steps {
+                sh 'whoami'
+                sh '''
+                    cd devops/Node.js-App-Deploy-Github-Action
+                    docker build -t node-app .
+                '''
+                echo 'Image created successfully'
+            }
+        }
+        stage('Login to DockerHub') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                    sh 'echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin'
+                }
+            }
+        }
+        stage('Running container') {
+            steps {
+                sh 'docker run -d -p 8000:8080 node-app'
+                echo 'Container started successfully'
+            }
+        }
+        stage('Deploy the application using docker compose file') {
+            steps {
+                sh '''
+                    cd devops/Node.js-App-Deploy-Github-Action
+                    docker-compose up -d
+                '''
+                echo 'Webiste/Application is Live'
+            }
+        }
+    }
+}
