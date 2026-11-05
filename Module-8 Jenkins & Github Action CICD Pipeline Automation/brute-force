@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone the source code from Github') {
+            steps {
+               sh '''
+                mkdir -p devops
+                cd devops
+                rm -rf Node.js-App-Deploy-Github-Action
+                git clone -b main https://github.com/omkarsharma2821/Node.js-App-Deploy-Github-Action.git
+                '''
+                echo 'Cloning done'
+            }
+        }
+        stage('Git Pull from main'){
+            steps{
+                sh 'git pull origin main'
+            }
+        }
+        stage('Build applicationm node-app image'){
+            steps{
+                sh 'whoami'
+                sh 'docker buildx build --no-cache --load -t node-app:latest .'
+                echo 'build successfull'
+            }
+        }
+        stage('run application on port 8000'){
+            steps{
+                sh '''
+                docker rm -f nikhil-app
+                docker run -d -p 8000:8080 --name nikhil-app node-app
+                '''
+                echo 'application is live now'
+            }
+        }
+    }
+}
