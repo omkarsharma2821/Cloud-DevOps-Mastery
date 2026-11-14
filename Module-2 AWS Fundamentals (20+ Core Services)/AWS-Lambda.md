@@ -189,7 +189,47 @@ def lambda_handler(event, context):
     }
 
 ```
+## 4. Stop EC2 Instances That Are in Start State
 
+```python
+
+import boto3
+
+ec2 = boto3.client('ec2')
+
+def lambda_handler(event, context):
+
+    # Find all running EC2 instances
+    response = ec2.describe_instances(
+        Filters=[
+            {'Name': 'instance-state-name', 'Values': ['running']}
+        ]
+    )
+
+    running_instances = []
+
+    # Collect instance IDs
+    for reservation in response['Reservations']:
+        for instance in reservation['Instances']:
+            running_instances.append(instance['InstanceId'])
+
+    # Stop running instances
+    if running_instances:
+        print(f"Stopping instances: {running_instances}")
+
+        ec2.stop_instances(
+            InstanceIds=running_instances
+        )
+
+    else:
+        print("No running instances found")
+
+    return {
+        "action": "stop_instances",
+        "instances": running_instances
+    }
+
+```
 ---
 
 ✍️ **Author**: *Omkar Sharma*  
