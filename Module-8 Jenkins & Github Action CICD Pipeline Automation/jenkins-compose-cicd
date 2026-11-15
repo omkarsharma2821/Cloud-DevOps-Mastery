@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone the source code from Github') {
+            steps {
+               sh '''
+                mkdir -p devops
+                cd devops
+                rm -rf Node.js-App-Deploy-Github-Action
+                git clone -b main https://github.com/omkarsharma2821/Node.js-App-Deploy-Github-Action.git
+                '''
+                echo 'Cloning done'
+            }
+        }
+        stage('Git Pull from main'){
+            steps{
+                sh 'git pull origin main'
+            }
+        }
+        stage('Deploy using dokcer compose'){
+            steps{
+                sh 'pwd'
+                sh '''
+                    cd devops/Node.js-App-Deploy-Github-Action
+                    docker compose up -d
+                '''
+                echo 'deploy successfully'
+            }
+        }
+    }
+}
